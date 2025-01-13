@@ -1,0 +1,7 @@
+<h1>Add a New Bookmark to <%= @category.name %></h1>
+
+<%= simple_form_for [@category, @bookmark] do |f| %>
+  <%= f.input :recipe_id, collection: @recipes, label_method: :name, value_method: :id, prompt: "Select a recipe" %>
+  <%= f.input :comment, label: "Your Comment" %>
+  <%= f.button :submit, "Add Bookmark" %>
+<% end %>

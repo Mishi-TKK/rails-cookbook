@@ -14,9 +14,9 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-      redirect_to @category, notice: "Category was successfully created."
+      redirect_to categories_path, notice: "Category was successfully created."
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

@@ -1,3 +1,10 @@
 <h1>Category Details</h1>
 <p><%= @category.name %></p>
 
+<h2>Associated Recipes</h2>
+<% @category.bookmarks.each do |bookmark| %>
+  <p>
+    <%= link_to bookmark.recipe.name, recipe_path(bookmark.recipe) %> <!-- Links to the recipe details -->
+    <%= link_to 'Remove Bookmark', category_bookmark_path(@category, bookmark), method: :delete, data: { confirm: "Are you sure?" } %> <!-- Link to delete the bookmark -->
+  </p>
+<% end %>
